@@ -5,7 +5,6 @@ import {NbComponentOrCustomStatus} from "@nebular/theme/components/component-sta
 @Component({
   selector: 'app-character',
   templateUrl: './character.component.html',
-  styleUrls: ['./character.component.scss']
 })
 export class CharacterComponent implements OnInit {
 

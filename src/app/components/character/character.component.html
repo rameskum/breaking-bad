@@ -1,0 +1,17 @@
+<div class="character">
+  <div class="img-container">
+    <img [src]="character.img" [alt]="character.name">
+  </div>
+  <div class="details">
+    <h5>{{character.name}}</h5>
+    <span>aka. {{character.nickname}}</span>
+    <nb-badge text="{{character.status}}" status="{{getStatus(character.status)}}"
+              position="top right"></nb-badge>
+    <div class="status">
+      <div>
+        <span>dob:</span>
+        <div class="dob">{{character.birthday}}</div>
+      </div>
+    </div>
+  </div>
+</div>

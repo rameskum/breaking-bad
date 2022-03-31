@@ -1,0 +1,9 @@
+<nb-card accent="basic" [nbSpinner]="loading">
+  <nb-card-header>CHARACTERS</nb-card-header>
+  <nb-card-body>
+    <div class="characters">
+      <app-character *ngFor="let character of characters" [character]="character"></app-character>
+    </div>
+  </nb-card-body>
+</nb-card>
+

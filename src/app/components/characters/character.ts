@@ -9,4 +9,5 @@ export interface Character {
   appearance: string[];
   portrayed: string;
   category: string[];
+  better_call_saul_appearance: string[];
 }

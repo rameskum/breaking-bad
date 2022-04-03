@@ -7,10 +7,23 @@
     <span>aka. {{character.nickname}}</span>
     <nb-badge text="{{character.status}}" status="{{getStatus(character.status)}}"
               position="top right"></nb-badge>
-    <div class="status">
-      <div>
-        <span>dob:</span>
-        <div class="dob">{{character.birthday}}</div>
+  </div>
+  <div class="status">
+    <div>
+      <b>Occupation</b>
+      <ul>
+        <li *ngFor="let occ of character.occupation">{{occ}}</li>
+      </ul>
+    </div>
+    <div>
+      <b>Appearance</b>
+      <div class="seasons" *ngIf="character.appearance.length > 0">
+        <span>bb: </span>
+        <div *ngFor="let app of character.appearance">{{app}}</div>
+      </div>
+      <div class="seasons" *ngIf="character.better_call_saul_appearance.length > 0">
+        <span>bcs: </span>
+        <div *ngFor="let app of character.better_call_saul_appearance">{{app}}</div>
       </div>
     </div>
   </div>

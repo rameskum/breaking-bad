@@ -15,7 +15,7 @@ import {Component} from '@angular/core';
         <router-outlet></router-outlet>
       </nb-layout-column>
 
-      <nb-layout-footer>Contact us</nb-layout-footer>
+      <nb-layout-footer>&copy; Ramesh Kumar</nb-layout-footer>
     </nb-layout>`
 })
 export class AppComponent {

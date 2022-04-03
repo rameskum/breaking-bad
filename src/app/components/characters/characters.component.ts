@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {BreakingBadService} from "../../services/breaking-bad.service";
 import {Character} from "./character";
+import {BreakingBadCacheService} from "../../services/impl/breaking-bad-cache.service";
 
 @Component({
   selector: 'app-characters',
@@ -8,11 +8,10 @@ import {Character} from "./character";
 })
 export class CharactersComponent implements OnInit {
 
-  characters: Character[];
+  characters!: Character[];
   loading: boolean = true;
 
-  constructor(private breakingBadService: BreakingBadService) {
-    this.characters = [];
+  constructor(private breakingBadService: BreakingBadCacheService) {
   }
 
   ngOnInit(): void {
@@ -20,6 +19,8 @@ export class CharactersComponent implements OnInit {
       .subscribe(res => {
         this.characters = res;
         this.loading = false;
+        this.breakingBadService.loadCharacterDetails(res).subscribe();
+        console.log(this.characters);
       });
   }
 }

@@ -9,7 +9,7 @@
 :root {
   --backgroung-color: #151320;
   --card-background-color: #3b3a4b;
-  --card-border-radius: 4rem;
+  --card-border-radius: 40px;
 }
 
 body {
@@ -32,7 +32,7 @@ body {
   width: max(20rem, 200px);
   display: flex;
   flex-direction: column;
-  border-radius: var(--card-border-radius);
+  border-radius: var(--card-border-radius) !important;
   box-shadow: 0 0 3rem rgba(0, 0, 0, 0.18);
   overflow: hidden;
   position: relative;
@@ -124,4 +124,21 @@ body {
 
 .seasons div:last-child {
   margin: 0;
+}
+
+.info {
+  padding: 1rem;
+
+  div {
+    font-size: 0.8rem;
+    color: #555;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    & div:first-child{
+      font-style: italic;
+      font-weight: 600;
+      width: 80px;
+    }
+  }
 }

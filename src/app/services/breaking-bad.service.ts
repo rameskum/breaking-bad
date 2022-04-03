@@ -1,39 +1,15 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Character} from "../components/characters/character";
-import {catchError, Observable, retry, throwError} from "rxjs";
-import {NbToastrService} from "@nebular/theme";
+import {Observable} from "rxjs";
+import {Character, DeathInfo, KillInfo, Quote} from "../components/characters/character";
 
-@Injectable({
-  providedIn: 'root'
-})
-export class BreakingBadService {
+export interface BreakingBadService {
 
-  private API_BASE_URL: string = 'https://www.breakingbadapi.com/api';
+  getCharacters(): Observable<Character[]>;
 
-  constructor(private http: HttpClient,
-              private toasterService: NbToastrService) {
-  }
+  getDeathInfo(character: Character): Observable<DeathInfo>;
 
-  public getCharacters(): Observable<Character[]> {
-    return this.http.get<Character[]>(this.API_BASE_URL + '/characters')
-      .pipe(
-        retry(2),
-        catchError(this.handleError)
-      )
-  }
+  getKillInfo(character: Character): Observable<KillInfo>;
 
-  handleError(error: any) {
-    let errorMessage = '';
-    if (error.error instanceof ErrorEvent) {
-      errorMessage = error.error.message;
-    } else {
-      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-    }
+  getQuotes(character: Character): Observable<Quote[]>
 
-    this.toasterService.danger('something went wrong', errorMessage);
-    return throwError(() => {
-      return errorMessage;
-    });
-  }
+  loadCharacterDetails(characters: Character[]): Observable<Character>;
 }

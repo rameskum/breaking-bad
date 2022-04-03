@@ -28,4 +28,26 @@
       </div>
     </div>
   </div>
+  <div class="info" [nbSpinner]="!character.loaded" *ngIf="character.death.cause">
+    <b>Death Info</b>
+    <div>
+      <div>Cause</div>
+      <div>{{character.death.cause}}</div>
+    </div>
+    <div>
+      <div>Last Word</div>
+      <div>{{character.death.last_words}}</div>
+    </div>
+    <div>
+      <div>Responsible</div>
+      <div>{{character.death.responsible}}</div>
+    </div>
+    <div>
+      <div>Died in</div>
+      <div>S{{character.death.season}}-E{{character.death.episode}}</div>
+    </div>
+  </div>
+  <div class="info" [nbSpinner]="!character.loaded">
+    <b>Kills: </b> {{character.kills.deathCount ? character.kills.deathCount : 0}}
+  </div>
 </div>

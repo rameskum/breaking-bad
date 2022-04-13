@@ -1,12 +1,12 @@
 name: deploy to github-page
 
 on:
-push:
-  branches:
-    - release
-pull_request:
-  branches:
-    - master
+  push:
+    branches:
+      - release
+  pull_request:
+    branches:
+      - master
 
 jobs:
   build-and-deploy:

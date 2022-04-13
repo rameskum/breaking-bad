@@ -1,0 +1,29 @@
+name: deploy to github-page
+
+on:
+push:
+  branches:
+    - release
+pull_request:
+  branches:
+    - master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: setup node 16.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+
+      - name: prepare and deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npm install
+          npm run ng -- deploy --base-href=/breaking-bad/ --name="rameskum" --email="rameskum.ms@outlook.com" --no-silent
